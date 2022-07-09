@@ -6,11 +6,11 @@
 在[这篇文章](https://github.com/yihong0618/gitblog/issues/177)里他解释了如何可以实现。
 请务必不要吝惜去给他的repo加⭐，因为好的努力，是毫无疑问应该认可且值得鼓励的事。
 ## 最近更新
-- [教培 - 我想做点什么](https://github.com/gnimg/gitblog/issues/19)--2022-07-09
 - [生命的戛然而止](https://github.com/gnimg/gitblog/issues/18)--2022-07-09
 - [坚持，是一个朴素却极其难能的事情。](https://github.com/gnimg/gitblog/issues/17)--2022-07-09
 - [升级Ubuntu 22 LTS后，AppImage不能用了](https://github.com/gnimg/gitblog/issues/16)--2022-04-24
 - [太久没有来更新了](https://github.com/gnimg/gitblog/issues/15)--2022-04-24
+- [Token 过期](https://github.com/gnimg/gitblog/issues/14)--2022-01-09
 ## 愉悦
 - [英使馆的圣诞集市](https://github.com/gnimg/gitblog/issues/6)--2021-12-11
 - [github网页版的快捷键](https://github.com/gnimg/gitblog/issues/3)--2021-12-03
