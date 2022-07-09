@@ -45,17 +45,15 @@ jobs:
           pip install -r requirements.txt
         if: steps.pip-cache.outputs.cache-hit != 'true'
 
-      - name: Generate new md # if you fork or clone this repo, please delete the curl line unless you know why
+      - name: Generate new md
         run: |
           source venv/bin/activate
           python main.py ${{ secrets.gitblog }} ${{ github.repository }} --issue_numbe '${{ github.event.issue.number }}'
         
       - name: Push README
-        uses: github-actions-x/commit@v2.6
-        with:
-          github-token: ${{ secrets.gitblog }}
-          commit-message: "Refresh README AND BACK UP"
-          files: README.md BACKUP/
-          rebase: 'true'
-          name: ${{ env.GITHUB_NAME }}
-          email: ${{ env.GITHUB_EMAIL }}
+        run: |
+          git config --local user.email "${{ env.GITHUB_EMAIL }}"
+          git config --local user.name "${{ env.GITHUB_EMAIL }}"
+          git commit -a -m 'update new blog' || echo "nothing to commit"
+          git push || echo "nothing to push"
+
