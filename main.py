@@ -232,6 +232,7 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
         func(repo, "README.md", me)
 
     to_generate_issues = get_to_generate_issues(repo, dir_name, issue_number)
+    print(f"Found [{len(to_generate_issues)}] for MD backup file generation")
 
     # save md files to backup folder
     for issue in to_generate_issues:
@@ -242,11 +243,14 @@ def save_issue(issue, me, dir_name=BACKUP_DIR):
     md_name = os.path.join(
         dir_name, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
     )
+    print(f"Generating [{md_name}]")
+    
     with open(md_name, "w") as f:
         f.write(f"# [{issue.title}]({issue.html_url})\n\n")
-        f.write(issue.body)
+        if len(issue.body) > 0:
+            f.write(issue.body)
         if issue.comments:
-            for c in issue.get_comments():
+            for c in [iss for iss in issue.get_comments() if len(iss.body)>0]:
                 if isMe(c, me):
                     f.write("\n\n---\n\n")
                     f.write(c.body)
